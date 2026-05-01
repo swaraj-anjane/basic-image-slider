@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>
+      <img id="image" width="500" src="" alt="image" />
+
+      <div>
+        <button onclick="previous()">Prev</button>
+        <button onclick="next()">Next</button>
+      </div>
+    </div>
+
+    <script>
+      let imageArr = [
+        "./images/Aesthetic Computer 4k Wallpaper.jpg",
+        "./images/pexels-baskincreativeco-1766838.jpg",
+        "./images/pexels-felix-mittermeier-956981.jpg",
+        "./images/pexels-sebastiaan9977-1097456.jpg",
+        "./images/pexels-suissounet-2101187.jpg",
+      ];
+      let count = 0;
+
+      let img = document.getElementById("image");
+
+      img.src = imageArr[count];
+
+      function next() {
+        if (count < imageArr.length - 1) {
+          count++;
+        } else {
+          count = 0;
+        }
+        img.src = imageArr[count];
+      }
+
+      function previous() {
+        if (count > 1) {
+          count--;
+        } else {
+          count = imageArr.length - 1;
+        }
+        img.src = imageArr[count];
+      }
+
+      setInterval(() => {
+        next();
+      }, 30000);
+    </script>
+  </body>
+</html>
